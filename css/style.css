@@ -1,0 +1,11 @@
+@import url("header.css");
+@import url("banner.css");
+
+
+body
+{
+    background-color: var(--background);
+    font-family: var(--fonte-principal), sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
