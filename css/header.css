@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100..700&display=swap');
 
 :root
 {
     --background: #EBECEE;
     --background-header: #FFFFFF;
     --titulos: #EB9B00;
+    --titulos-secundario: #002F52;
+    --preto:#000;
+    --font-footer: #858585;
+    --font-footer-secundaria: #474646;
     --azul-degrade: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
     --fonte-principal: "Poppins";
+    --fonte-secundaria: "Josefin Sans";
 }
 
 .cabecalho__menu-hamburguer
@@ -15,9 +20,19 @@
     width: 24px;
     height: 24px;
     background-image: url(../img/Menu2.svg);
-    background-repeat: none;
+    background-repeat: no-repeat;
     background-position: center;
     display: inline-block;
+    padding: 1rem;
+}
+
+.cabecalho__left--titulo, .cabecalho__lista, .cabecalho__right-texto
+{
+    display: none;
+}
+
+.cabecalho__botao:checked ~ .cabecalho__menu > .cabecalho__menu-hamburguer{
+    background-image: url("../img/Menu\ Aberto.png");
 }
 
 .cabecalho
@@ -31,7 +46,7 @@
 
 .cabecalho__left
 {
-    margin: 10px 0 10px 0px;
+    margin: 0px 0 0px 0px;
     display: flex;
     align-items: center;
     gap: 20px;
@@ -39,7 +54,7 @@
 
 .cabecalho__right
 {
-    margin: 10px 0 10px 10px;
+    margin: 10px;
 }
 
 .lista-menu {
@@ -74,12 +89,108 @@
     background-clip: text;
 }
 
-.cabecalho__menu-hamburguer
-{
-    margin-left: 10px;
-}
-
 .cabecalho__botao
 {
     display: none;
+}
+
+
+
+.cabecalho__botao:checked ~ .cabecalho__menu{
+    background: var(--azul-degrade);
+}
+
+@media screen and (min-width: 1024px)
+{
+
+    .cabecalho__rigth--transparente, .cabecalho__menu-hamburguer
+     {
+        display: none;
+     }
+
+    .cabecalho__left--titulo, .cabecalho__left--titulo--negrito
+     {
+        font-family: var(--fonte-principal);
+        font-size: 30px;
+     }
+
+    .cabecalho__left--titulo--negrito
+     {
+        font-weight: 700;
+     }
+
+    .cabecalho__left--titulo
+     {
+        display: block;
+        font-weight: 400;
+     }
+
+    .cabecalho__lista
+     {
+        display: flex;
+     }
+
+    .cabecalho__lista--item
+     {
+        padding: 2rem 1rem;
+        text-transform: uppercase;
+     }
+
+     .cabecalho__botao--1024:checked ~ .lista-menu
+     {
+        display: block;
+        width:auto;
+     }
+     
+    .cabecalho__botao--1024
+    {
+        display: none;
+    }
+
+    .cabecalho__botao--1024:checked ~ .cabecalho__menu > .cabecalho__lista--item
+    {
+        background: var(--azul-degrade);
+        color: var(--background-header)
+    }
+
+    .lista-menu__item:hover
+    {
+        background: var(--azul-degrade);
+    }
+
+    .lista-menu__item:hover > .lista-menu__link{
+        -webkit-text-fill-color: var(--background-header);
+    }
+}
+
+@media screen and (min-width: 1728px) {
+
+    .cabecalho
+    {
+        padding: 0 50px;
+    }
+    .cabecalho__lista{
+        margin-right: auto;
+        font-size: 16px;
+        padding-left: 50px;
+    }
+
+    .cabecalho__right{
+        display: flex;
+        gap: 20px;
+    }
+
+    .cabecalho__right-link{
+        display: flex;
+        align-items: center;
+        color: var(--preto);
+        font-size: 20px;
+        
+    }
+
+    .cabecalho__right-texto
+    {
+        display: block;
+    }
+
 }
